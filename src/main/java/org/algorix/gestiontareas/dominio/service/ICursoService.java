@@ -8,5 +8,5 @@ public interface ICursoService {
     List<Curso> listarCursos();
     Curso buscarCursoPorId(Integer id);
     void guardarCurso(Curso curso);
-    void eliminarCurso(Integer id);
+    void eliminarCurso(Curso curso);
 }

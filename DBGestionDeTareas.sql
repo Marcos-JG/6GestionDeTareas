@@ -14,6 +14,7 @@ create table estudiantes (
     id_estudiante int auto_increment,
     nombre varchar(256) not null,
     correo varchar(256) not null,
+    contraseña varchar(256) not null,
     constraint pk_estudiantes primary key (id_estudiante)
 );
 

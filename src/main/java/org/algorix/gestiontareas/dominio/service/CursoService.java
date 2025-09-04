@@ -16,7 +16,7 @@ public class CursoService implements ICursoService {
 
     @Override
     public List<Curso> listarCursos() {
-        List<Curso> cursos = crud.findAll;
+        List<Curso> cursos = crud.findAll();
         return cursos;
     }
 
@@ -32,7 +32,7 @@ public class CursoService implements ICursoService {
     }
 
     @Override
-    public void eliminarCurso(Integer id) {
+    public void eliminarCurso(Curso curso) {
         crud.delete(curso);
     }
 }

@@ -3,7 +3,7 @@ package org.algorix.gestiontareas.persistence.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "cursos")
+@Entity(name = "estudiantes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,5 +16,6 @@ public class Estudiante {
     @Column
     private String nombre;
     private String correo;
+    @Column(name = "contraseña")
     private String contraseña;
 }

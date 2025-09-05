@@ -58,19 +58,19 @@ create table entregas (
     constraint fk_e_estudiantes foreign key (id_estudiante) references estudiantes(id_estudiante)
 );
 
-insert into profesores (nombre, apellido, correo) values
-('carlos', 'mendoza', 'cmendoza@universidad.edu'),
-('lucia', 'ramirez', 'lramirez@universidad.edu'),
-('miguel', 'torres', 'mtorres@universidad.edu'),
-('ana', 'gutierrez', 'agutierrez@universidad.edu'),
-('javier', 'lopez', 'jlopez@universidad.edu');
+insert into profesores (nombre, apellido, correo, contraseña) values
+('carlos', 'mendoza', 'cmendoza@universidad.edu','1'),
+('lucia', 'ramirez', 'lramirez@universidad.edu','1'),
+('miguel', 'torres', 'mtorres@universidad.edu','1'),
+('ana', 'gutierrez', 'agutierrez@universidad.edu','1'),
+('javier', 'lopez', 'jlopez@universidad.edu','1');
 
-insert into estudiantes (nombre, correo) values
-('maria garcia', 'mgarcia@estudiante.edu'),
-('juan perez', 'jperez@estudiante.edu'),
-('sofia martinez', 'smartinez@estudiante.edu'),
-('david hernandez', 'dhernandez@estudiante.edu'),
-('laura diaz', 'ldiaz@estudiante.edu');
+insert into estudiantes (nombre, correo, contraseña) values
+('maria garcia', 'mgarcia@estudiante.edu','1'),
+('juan perez', 'jperez@estudiante.edu','1'),
+('sofia martinez', 'smartinez@estudiante.edu','1'),
+('david hernandez', 'dhernandez@estudiante.edu','1'),
+('laura diaz', 'ldiaz@estudiante.edu','1');
 
 insert into cursos (nombre, descripcion, id_profesor) values
 ('cálculo i', 'introducción al cálculo diferencial', 1),

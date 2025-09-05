@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Cursos</title>
+    <h:outputStylesheet name="../webapp/resources/css/curso.css"/>
+</h:head>
+<h:body>
+<h:form id="formulario-curso">
+    <h2 class="titulo">Cursos por materia</h2>
+
+    <p:panelGrid columns="2" styleClass="filtro-grid">
+        <p:outputLabel for="materia" value="Seleccionar materia:"/>
+        <p:selectOneMenu id="materia" value="#{cursoController.materiaSeleccionada}" styleClass="select-materia">
+            <f:selectItem itemLabel="-- Todas --" itemValue="" />
+            <f:selectItems value="#{cursoController.cursos}" var="c"
+                           itemLabel="#{c.nombre}" itemValue="#{c.nombre}"/>
+            <p:ajax update="tabla-cursos"/>
+        </p:selectOneMenu>
+    </p:panelGrid>
+
+    <p:growl id="growl" showDetail="true" />
+
+    <p:dataTable id="tabla-cursos" var="c" value="#{cursoController.cursosFiltrados}"
+                 rows="10" paginator="true" styleClass="tabla-cursos">
+        <p:column headerText="ID">
+            <h:outputText value="#{c.id_curso}"/>
+        </p:column>
+        <p:column headerText="Materia">
+            <h:outputText value="#{c.nombre}"/>
+        </p:column>
+        <p:column headerText="Descripción">
+            <h:outputText value="#{c.descripcion}"/>
+        </p:column>
+        <p:column headerText="Profesor ID">
+            <h:outputText value="#{c.id_profesor}"/>
+        </p:column>
+        <p:column headerText="Acciones">
+            <p:commandButton value="Seleccionar" update=":formulario-curso:mensaje_emergente :formulario-curso:panelProfesor"
+                             actionListener="#{cursoController.seleccionarCurso(c)}"/>
+            <p:commandButton value="Ver profesor" actionListener="#{cursoController.mostrarProfesorDelCurso}"
+                             update=":formulario-curso:growl :formulario-curso:panelProfesor"/>
+        </p:column>
+    </p:dataTable>
+
+    <h:panelGroup id="mensaje_emergente"/>
+
+    <h:panelGroup id="panelProfesor" styleClass="panel-profesor">
+        <h:outputText value="#{cursoController.profesorDelCurso != null ? 'Profesor: ' + cursoController.profesorDelCurso.nombre + ' ' + cursoController.profesorDelCurso.apellido : 'Profesor no asignado'}"/>
+    </h:panelGroup>
+
+</h:form>
+</h:body>
+</html>

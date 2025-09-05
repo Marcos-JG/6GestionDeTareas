@@ -6,7 +6,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
-@Entity(name = "cursos")
+@Entity(name = "tareas")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

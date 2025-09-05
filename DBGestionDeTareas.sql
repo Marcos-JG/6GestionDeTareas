@@ -7,6 +7,7 @@ create table profesores (
     nombre varchar(256) not null,
     apellido varchar(256) not null,
     correo varchar(256) not null,
+    contraseña varchar(256) not null,
     constraint pk_profesores primary key (id_profesor)
 );
 

@@ -4,7 +4,7 @@ package org.algorix.gestiontareas.persistence.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "cursos")
+@Entity(name = "profesores")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
